@@ -1,21 +1,53 @@
 # Informe de Pruebas Unitarias: Level-Up Gamer
+
+##  ¿Qué es Vitest y por qué es importante?
+
+**Vitest** es un framework de pruebas automatizadas para proyectos JavaScript creados con Vite, como Level-Up Gamer. Permite escribir pruebas que verifican, de forma automática, que cada parte de la aplicación hace lo que debería, y ejecutarlas todas en pocos segundos.
+
+**¿Por qué es importante en este proyecto?**
+
+- **Valida la migración:** el sitio pasó de HTML y CSS a React. Las pruebas confirman que los componentes, enlaces, formularios y funciones siguen comportándose como se esperaba.
+- **Detecta errores a tiempo:** si un cambio futuro rompe algo (por ejemplo, el enlace "Ver Catálogo" o una validación), la prueba falla y avisa de inmediato, sin tener que revisar la página a mano.
+- **Ahorra tiempo:** una prueba se escribe una vez y se puede ejecutar cuantas veces se necesite.
+- **Mide la calidad:** con el reporte de cobertura se sabe qué porcentaje del código fue realmente verificado y qué partes faltan por probar.
+- **Documenta el comportamiento:** cada prueba describe qué debe hacer un componente, lo que sirve de referencia para quien continúe el proyecto.
+- **Integración con Vite:** usa la misma configuración del proyecto, por lo que no requiere herramientas adicionales de compilación.
+
+
+# Objetivo
 Verificar que los componentes, páginas y funciones de validación del sitio migrado a React funcionan correctamente y mantienen el comportamiento esperado.
 
 ## Alcance
 
-**Incluido:** Header, Hero, ProductCard, páginas Inicio, Productos y Registro, y funciones de validación (`validaciones.js`).
+**Qué se probó (7 archivos de prueba, 13 pruebas):**
 
-**No incluido:** `App.jsx` (enrutamiento), `Footer.jsx`, pruebas de extremo a extremo, rendimiento y compatibilidad entre navegadores.
+| Elemento | Qué se verificó |
+|----------|-----------------|
+| `Header` | Logo y enlaces de navegación (Inicio, Productos, Regístrate, Eventos) |
+| `Hero` | Que el botón "Ver Catálogo" apunte a `/productos` |
+| `ProductCard` | Que la tarjeta muestre nombre, descripción, precio y botón "Agregar al Carrito" |
+| Página `Inicio` | Título del banner, secciones principales y detalle del evento |
+| Página `Productos` | Título del catálogo, productos y 10 botones "Agregar al Carrito" |
+| Página `Registro` | Campos del formulario y mensaje de error al enviarlo vacío |
+| `validaciones.js` | Funciones `hayCamposVacios`, `correoValido`, `telefonoValido` y `esCorreoDuoc` |
+
+**Qué no se probó:**
+
+- `App.jsx` (enrutamiento) y `Footer.jsx`: no tienen pruebas, por lo que figuran con 0 % en la tabla de cobertura.
+- Registro con datos inválidos o con envío exitoso.
+- Pruebas de extremo a extremo, rendimiento y compatibilidad entre navegadores.
 
 ##  Herramientas y entorno
 
-| Herramienta | Uso |
-|-------------|-----|
-| Vitest 4.1.11 | Framework de pruebas, integrado con Vite |
-| jsdom | Simula el navegador dentro de Node.js |
-| React Testing Library | Renderiza componentes y los consulta como lo haría un usuario |
-| jest-dom | Aserciones sobre el DOM (`toBeInTheDocument`, etc.) |
-| @vitest/coverage-v8 | Medición de cobertura de código |
+Para ejecutar las pruebas se combinaron cinco herramientas, cada una con una función distinta:
+
+| Herramienta | Qué es | Para qué se usó en este proyecto |
+|-------------|--------|----------------------------------|
+| **Vitest 4.1.11** | Framework que ejecuta las pruebas y reporta cuáles pasan o fallan | Correr las 13 pruebas y generar el reporte de resultados |
+| **jsdom** | Simulador de navegador que funciona dentro de Node.js | Permitir que los componentes de React se dibujen sin abrir un navegador real |
+| **React Testing Library** | Librería para renderizar componentes y consultarlos como lo haría un usuario | Buscar botones, enlaces, títulos y campos por su texto o función |
+| **jest-dom** | Conjunto de verificaciones sobre elementos de la página | Comprobar condiciones como `toBeInTheDocument()` o `toHaveAttribute()` |
+| **@vitest/coverage-v8** | Medidor de cobertura de código | Calcular el porcentaje de código ejecutado por las pruebas |
 
 **Entorno:** Windows, Node v25.9.0, VS Code.
 
