@@ -31,6 +31,32 @@ npm install -D vitest jsdom @testing-library/react @testing-library/jest-dom @vi
 npx vitest run --coverage --reporter=verbose
 ```
 
+## 4.1 Archivos creados y modificados
+
+Para implementar las pruebas se configuró el entorno y se crearon 7 archivos de prueba, sin modificar el código de la aplicación.
+
+**Configuración:**
+
+| Archivo | Cambio |
+|---------|--------|
+| `vite.config.js` | Se agregó el bloque `test` (entorno `jsdom`, `globals: true` y `setupFiles`) |
+| `src/setupTests.js` | Archivo nuevo: importa `@testing-library/jest-dom` |
+| `package.json` | Se agregó el script `"test": "vitest"` y las dependencias de desarrollo |
+
+**Archivos de prueba creados:**
+
+| Archivo | Qué prueba | Casos |
+|---------|-----------|-------|
+| `src/components/Header.test.jsx` | Logo y enlaces de navegación | TC-01 |
+| `src/components/Hero.test.jsx` | Enlace "Ver Catálogo" hacia `/productos` | TC-02 |
+| `src/components/ProductCard.test.jsx` | Contenido de la tarjeta de producto | TC-07 |
+| `src/pages/Inicio.test.jsx` | Banner, secciones y detalle del evento | TC-03, TC-04, TC-05 |
+| `src/pages/Productos.test.jsx` | Catálogo de productos | TC-06 |
+| `src/pages/Registro.test.jsx` | Campos del formulario y validación de formulario vacío | TC-08, TC-09 |
+| `src/utils/validaciones.test.js` | Funciones de validación | TC-10 (4 pruebas) |
+
+Total: 7 archivos de prueba, 13 pruebas.
+
 ## 5. Casos de prueba
 
 | ID | Módulo | Descripción | Resultado esperado | Estado |
