@@ -7,7 +7,7 @@ Verificar que los componentes, páginas y funciones de validación del sitio mig
 
 **No incluido:** `App.jsx` (enrutamiento), `Footer.jsx`, pruebas de extremo a extremo, rendimiento y compatibilidad entre navegadores.
 
-## 4. Herramientas y entorno
+##  Herramientas y entorno
 
 | Herramienta | Uso |
 |-------------|-----|
@@ -31,7 +31,7 @@ npm install -D vitest jsdom @testing-library/react @testing-library/jest-dom @vi
 npx vitest run --coverage --reporter=verbose
 ```
 
-## 4.1 Archivos creados y modificados
+##  Archivos creados y modificados
 
 Para implementar las pruebas se configuró el entorno y se crearon 7 archivos de prueba, sin modificar el código de la aplicación.
 
@@ -57,7 +57,7 @@ Para implementar las pruebas se configuró el entorno y se crearon 7 archivos de
 
 Total: 7 archivos de prueba, 13 pruebas.
 
-## 5. Casos de prueba
+##  Casos de prueba
 
 | ID | Módulo | Descripción | Resultado esperado | Estado |
 |----|--------|-------------|--------------------|--------|
@@ -77,7 +77,7 @@ Total: 7 archivos de prueba, 13 pruebas.
 
 > TC-10 agrupa cuatro pruebas de las funciones de validación.
 
-## 6. Resumen de resultados
+##  Resumen de resultados
 
 | Indicador | Valor |
 |-----------|-------|
@@ -86,7 +86,7 @@ Total: 7 archivos de prueba, 13 pruebas.
 | Duración total | 6.93 s |
 | Defectos encontrados | Ninguno |
 
-## 7. Cobertura de código
+##  Cobertura de código
 
 | Métrica | Resultado |
 |---------|-----------|
@@ -105,19 +105,19 @@ Total: 7 archivos de prueba, 13 pruebas.
 | Footer.jsx | 0 % | 100 % | 0 % |
 | App.jsx | 0 % | 100 % | 0 % |
 
-## 8. Análisis
+##  Análisis
 
 - Los componentes de presentación (Header, Hero, ProductCard, Inicio y Productos) quedaron **completamente cubiertos**.
 - **Registro.jsx (46.66 %)** es el módulo con mayor oportunidad de mejora: solo se probó el renderizado y el envío con el formulario vacío.
 - **validaciones.js (78.12 %)** tiene ramas sin ejecutar, correspondientes a casos límite.
 - **App.jsx y Footer.jsx** no cuentan con pruebas, por lo que figuran con 0 %.
 
-## 9. Conclusiones y recomendaciones
+##  Conclusiones y recomendaciones
 
 Las 13 pruebas ejecutadas fueron exitosas, por lo que los componentes y funciones evaluados se comportan según lo esperado tras la migración a React. La cobertura global es de 71.66 %.
 
 
-## 10. Evidencias
+##  Evidencias
 
 **Ejecución de las pruebas (13 en verde):**
 
